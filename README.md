@@ -1,2 +1,2 @@
-# Ibi-Turismo-Sergipano
+# Ibiá-Turismo-Sergipano
 Guia Turistico Sergipano
