@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ibiá Turismo Sergipano</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;800&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Meta -->
+  <meta name="description" content="Ibiá Turismo Sergipano - Guia de pontos turísticos, gastronomia, curiosidades e contatos de Sergipe." />
+</head>
+<body>
+
+  <!-- HEADER (fixo) -->
+  <header id="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <!-- Substitua pela sua imagem de logo se desejar -->
+        <img src="ibiá.logo.png" alt="Logo Ibiá Turismo Sergipano">
+      </div>
+
+      <nav class="main-nav" role="navigation" aria-label="Menu principal">
+        <ul>
+          <li><a href="#inicio">Início</a></li>
+          <li><a href="#pontos">Pontos Turísticos</a></li>
+          <li><a href="#gastronomia">Gastronomia</a></li>
+          <li><a href="#curiosidades">Curiosidades</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button id="translateBtn" aria-label="Translate to English">EN</button>
+        <a class="insta" href="https://instagram.com/ibiaturismosergipano" target="_blank" rel="noopener">Instagram</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- BOTÃO VOLTAR AO TOPO -->
+  <button id="backToTop" aria-label="Voltar ao início">↑</button>
+
+  <!-- INÍCIO / HERO -->
+  <section id="inicio" class="hero">
+    <div class="hero-content">
+      <h1 class="title">Ibiá Turismo Sergipano</h1>
+      <p class="slogan">Descubra Sergipe — natureza, história e sabores do verdadeiro Nordeste.</p>
+
+      <!-- slideshow simples -->
+      <div class="slideshow" aria-roledescription="carousel">
+        <button class="slide-btn prev" aria-label="Slide anterior">‹</button>
+        <div class="slides">
+          <div class="slide active">
+            <img src="mangueneopolis.png" alt="Manguezais de Neópolis">
+            <div class="caption">Manguezais de Neópolis — berçário de espécies e cultura ribeirinha.</div>
+          </div>
+          <div class="slide">
+            <img src="praiarefugio.png" alt="Praia do Refúgio">
+            <div class="caption">Praia do Refúgio — águas e barracas à beira-mar.</div>
+          </div>
+          <div class="slide">
+            <img src="orlaatalaia.jpg" alt="Orla de Atalaia">
+            <div class="caption">Orla de Atalaia — calçadão e vida cultural.</div>
+          </div>
+        </div>
+        <button class="slide-btn next" aria-label="Próximo slide">›</button>
+      </div>
+
+      <div class="hero-cta">
+        <a href="#pontos" class="btn">Ver pontos turísticos</a>
+      </div>
+    </div>
+
+    <!-- áudio de fundo com controle -->
+    <audio id="bgMusic" loop>
+      <source src="audio.mp3" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+    <div class="audio-controls">
+      <button id="audioToggle" aria-label="Ativar/Desativar música">Ativar música</button>
+    </div>
+  </section>
+
+  <!-- PONTOS TURÍSTICOS (Galeria com descrições) -->
+  <section id="pontos" class="section">
+    <div class="container">
+      <h2>Pontos Turísticos</h2>
+
+      <div class="gallery">
+        <!-- item 1 -->
+        <article class="gallery-item">
+          <img src="mangueneopolis.png" alt="Manguezais de Neópolis">
+          <div class="gallery-info">
+            <h3>Manguezais de Neópolis</h3>
+            <p>Localizados às margens do rio São Francisco, os manguezais protegem a margem, atuam como filtro natural e sustentam pescadores e comunidades ribeirinhas. Ótimo para ecoturismo e observação de aves.</p>
+            <p class="meta">Local: Baixo São Francisco · Dica: leve repelente e respeite trilhas.</p>
+          </div>
+        </article>
+
+        <!-- item 2 -->
+        <article class="gallery-item">
+          <img src="praiarefugio.png" alt="Praia do Refúgio">
+          <div class="gallery-info">
+            <h3>Praia do Refúgio (Aracaju)</h3>
+            <p>Areia clara, coqueiros e boa infraestrutura nas barracas à beira-mar. Excelente para banho e esportes aquáticos; gastronomia com frutos do mar.</p>
+            <p class="meta">Local: Rod. José Sarney · Dica: verificar tábua de marés.</p>
+          </div>
+        </article>
+
+        <!-- item 3 -->
+        <article class="gallery-item">
+          <img src="orlaatalaia.jpg" alt="Orla de Atalaia">
+          <div class="gallery-info">
+            <h3>Orla de Atalaia (Aracaju)</h3>
+            <p>Calçadão, ciclovias, Projeto Tamar e oceanário. Pôr do sol espetacular e opções de lazer e gastronomia.</p>
+            <p class="meta">Local: Aracaju · Dica: visitar ao entardecer e provar caranguejo.</p>
+          </div>
+        </article>
+
+        <!-- item 4 -->
+        <article class="gallery-item">
+          <img src="cidades-historicas-de.jpg" alt="Centro Histórico">
+          <div class="gallery-info">
+            <h3>Centro Histórico (São Cristóvão / Laranjeiras)</h3>
+            <p>Arquitetura colonial e barroca: igrejas, conventos e casarões, com forte herança cultural e museus.</p>
+            <p class="meta">Local: São Cristóvão / Laranjeiras · Dica: visite museus e igrejas históricas.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA INTERATIVO -->
+  <section id="mapa" class="section">
+    <div class="container">
+      <h2>Mapa de Sergipe</h2>
+      <p>Clique nos marcadores para localizar os pontos.</p>
+
+      <!-- Embed do Google Maps (substitua center & markers conforme necessidade) -->
+      <div class="map-wrapper">
+        <iframe
+          src="https://www.google.com/maps/d/u/0/embed?mid=1UyUNLixck-R4RJNwNOxo3Vd0UyE3BVE&ehbc=2E312F&noprof=1" width="640"
+          width="100%" height="480" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <!-- OBS: para um mapa totalmente interativo e com marcadores, crie um mapa customizado no Google My Maps e troque o src acima -->
+      </div>
+    </div>
+  </section>
+
+  <!-- GASTRONOMIA -->
+  <section id="gastronomia" class="section">
+    <div class="container">
+      <h2>Gastronomia e Tradições</h2>
+      <p>1. Arroz de Cuxá
+Descrição: Prato típico do litoral, originário da culinária afro-brasileira. É feito com arroz acompanhado de vinagreira (erva local), gergelim, camarão seco ou peixe.
+Características: Sabor marcante, mistura de amargo da vinagreira com o salgado do camarão.
+Curiosidade: Muito consumido nas festividades juninas.<p>
+<p>2. Moqueca Sergipana
+Descrição: Variante da moqueca baiana, feita com peixe fresco, leite de coco, azeite de dendê e temperos regionais.
+Acompanhamento: Geralmente servida com arroz branco, pirão e farofa.
+Diferencial: Uso do azeite de dendê e do coentro, além do toque de pimentas locais.</p>
+<p>3. Caranguejo
+Descrição: Bastante consumido na região costeira, especialmente na Praia do Saco e região de Aracaju.
+Preparo: Cozido com sal ou preparado em moquecas e ensopados.
+Curiosidade: O consumo de caranguejo é tradicionalmente acompanhado de cerveja e música de forró.</p>
+<p>4. Peixada Sergipana
+Descrição: Peixe fresco cozido com legumes, batata, tomate, pimentão e temperos locais.
+Acompanhamento: Arroz branco e pirão de peixe.
+Diferencial: O frescor do peixe e o tempero com coentro fazem o prato se destacar.</p>
+<p>5. Sururu
+Descrição: Molusco típico do litoral, cozido ou usado em moquecas e caldeiradas.
+Curiosidade: É um prato mais comum em regiões próximas a rios e manguezais.</p>
+<p>6. Doce de Banana e Cartola
+Doce de Banana: Banana madura cozida com açúcar e canela, às vezes com queijo coalho.
+Cartola: Fatias de banana frita, cobertas com queijo coalho, canela e açúcar. Tradicional em Aracaju.</p>
+<p>7. Tapioca
+Descrição: Muito popular no café da manhã ou lanche, recheada com coco, queijo coalho, carne seca ou banana.
+Curiosidade: É consumida tanto doce quanto salgada, sendo um símbolo da culinária nordestina.</p>
+<p>8. Pitu
+Descrição: Lagosta pequena típica do litoral sergipano, preparada de forma simples, cozida com temperos locais.
+Curiosidade: Geralmente consumida em festas e celebrações.</p>
+<p>9. Beiju e Queijo Coalho
+Beiju: Crepe de tapioca simples, feito apenas com goma de mandioca.
+Queijo Coalho: Tradicionalmente grelhado, muitas vezes servido em festas juninas e praias.</p>
+<p>10. Culinária Junina
+Pratos típicos: Milho cozido, canjica, munguzá, pé-de-moleque e pamonha.
+Características: Uso intenso de milho, coco, amendoim e açúcar.</p>
+<p>Influências culturais
+Africana: Uso de azeite de dendê, camarão seco, vinagreira e temperos fortes.
+Indígena: Uso de mandioca, tapioca, beiju e frutas nativas.
+Portuguesa: Doces, bolos e técnicas de preparo de peixes.</p>
+    </div>
+  </section>
+
+  <!-- CURIOSIDADES -->
+  <section id="curiosidades" class="section">
+    <div class="container">
+      <h2>Curiosidades</h2>
+      <ul>
+        <li>Os manguezais funcionam como berçário para peixes e crustáceos.</li>
+        <li>A Orla de Atalaia abriga o Projeto Tamar (proteção de tartarugas marinhas).</li>
+        <li>São Cristóvão é um dos mais antigos núcleos coloniais do Brasil e tem construções históricas preservadas.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- CONTATO -->
+  <section id="contato" class="section contact-section">
+    <div class="container">
+      <h2>Contato</h2>
+      <p>Telefone/WhatsApp: <a href="https://wa.me/55799 99588247?text=Ol%C3%A1%2C+gostaria+de+informações" target="_blank" rel="noopener">(79) 9 9958-8247</a></p>
+      <p>E-mail: <a href="mailto:ibiaturismosergipano@gmail.com.br">ibiaturismosergipano@gmail.com.br</a></p>
+      <p>Instagram: <a href="https://instagram.com/ibiaturismosergipano" target="_blank" rel="noopener">@ibiaturismosergipano</a></p>
+
+      <form id="contactForm" action="#" method="post">
+        <label for="nome">Nome</label>
+        <input id="nome" name="nome" type="text" placeholder="Seu nome" required>
+
+        <label for="email">E-mail</label>
+        <input id="email" name="email" type="email" placeholder="seu@exemplo.com" required>
+
+        <label for="mensagem">Mensagem</label>
+        <textarea id="mensagem" name="mensagem" rows="4" placeholder="Como podemos ajudar?" required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-left">
+        <p>© <strong>Ibiá Turismo Sergipano</strong> — Promova turismo responsável.</p>
+      </div>
+      <div class="footer-right">
+        <a href="https://instagram.com/ibiaturismosergipano" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://wa.me/55799 99588247?text=Ol%C3%A1" target="_blank" rel="noopener">WhatsApp</a>
+        <a href="mailto:ibiaturismosergipano@gmail.com.br">E-mail</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS (tradução simples, slideshow, áudio, voltar topo) -->
+  <script>
+    /* Tradução simples PT -> EN (substitui textos chave). Para tradução completa, substitua strings abaixo. */
+    const translations = {
+      "Ibiá Turismo Sergipano": "Ibiá Sergipe Tourism",
+      "Descubra Sergipe — natureza, história e sabores do verdadeiro Nordeste.": "Discover Sergipe — nature, history and flavors of the true Northeast.",
+      "Ver pontos turísticos": "See tourist spots",
+      "Pontos Turísticos": "Tourist Spots",
+      "Gastronomia e Tradições": "Gastronomy & Traditions",
+      "Curiosidades": "Curiosities",
+      "Contato": "Contact",
+      "Ativar música": "Toggle music",
+      "Enviar": "Send",
+      "Voltar ao início": "Back to top"
+    };
+
+    const translateBtn = document.getElementById('translateBtn');
+    let translated = false;
+    translateBtn.addEventListener('click', () => {
+      translated = !translated;
+      // trocar textos simples usando map de tradução
+      document.querySelectorAll('h1.title, .slogan, .hero-cta .btn, section h2, #audioToggle, .btn[type="submit"]').forEach(node => {
+        const key = node.textContent.trim();
+        if (translated && translations[key]) node.textContent = translations[key];
+        else if (!translated) {
+          // recarregar a página é a maneira mais simples de voltar ao PT original
+          location.reload();
+        }
+      });
+      translateBtn.textContent = translated ? 'PT' : 'EN';
+    });
+
+    /* Slideshow */
+    (function() {
+      const slides = document.querySelectorAll('.slide');
+      let idx = 0;
+      const show = (i) => {
+        slides.forEach(s => s.classList.remove('active'));
+        slides[i].classList.add('active');
+      };
+      document.querySelector('.slide-btn.next').addEventListener('click', () => {
+        idx = (idx + 1) % slides.length;
+        show(idx);
+      });
+      document.querySelector('.slide-btn.prev').addEventListener('click', () => {
+        idx = (idx - 1 + slides.length) % slides.length;
+        show(idx);
+      });
+      // autoplay leve (opcional) - comentado por padrão
+      // setInterval(() => { idx = (idx + 1) % slides.length; show(idx); }, 6000);
+    })();
+
+    /* Audio toggle */
+    const bgMusic = document.getElementById('bgMusic');
+    const audioToggle = document.getElementById('audioToggle');
+    audioToggle.addEventListener('click', () => {
+      if (bgMusic.paused) { bgMusic.play(); audioToggle.textContent = 'Desativar música'; }
+      else { bgMusic.pause(); audioToggle.textContent = 'Ativar música'; }
+    });
+
+    /* Back to top */
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) backToTop.classList.add('visible');
+      else backToTop.classList.remove('visible');
+    });
+    backToTop.addEventListener('click', () => window.scrollTo({top:0, behavior:'smooth'}));
+
+    /* Form (demo) */
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Mensagem enviada (demo). Entraremos em contato em breve.');
+      e.target.reset();
+    });
+  </script>
+</body>
+</html>

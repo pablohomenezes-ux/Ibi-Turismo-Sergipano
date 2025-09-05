@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mapa Interativo — Pontos: Neópolis / Aracaju / São Cristóvão / Laranjeiras</title>
+
+  <!-- Leaflet CSS -->
+  <link
+    rel="stylesheet"
+    href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-sA+e2gqGk3QGq3h6z3mQxJm1o0xk3m0uKkSx1y5f+gI="
+    crossorigin=""
+  />
+
+  <style>
+    html, body { height:100%; margin:0; font-family: Arial, sans-serif; }
+    #map { height: 88vh; width: 100%; }
+    header { padding:12px 16px; background: linear-gradient(90deg,#0b7fb0,#0aa87a); color:#fff; }
+    header h1 { margin:0; font-size:18px; }
+    .info { padding:10px 16px; background:#f7f7f7; font-size:14px; }
+    .links { margin-top:8px; }
+    .links a { color:#0b7fb0; text-decoration:none; margin-right:12px; }
+    footer { font-size:12px; color:#666; padding:8px 16px; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Mapa Interativo — Pontos Turísticos (Neópolis / Aracaju / São Cristóvão / Laranjeiras)</h1>
+  </header>
+
+  <div class="info">
+    Clique nos marcadores para abrir a localização no Google Maps. Você pode arrastar/zoom e usar o controle de camadas.
+    <div class="links">
+      <strong>Locais incluídos:</strong>
+      Manguezais de Neópolis · Praia do Refúgio · Orla da Atalaia · Centro Histórico (São Cristóvão) · Centro Histórico (Laranjeiras)
+    </div>
+  </div>
+
+  <div id="map"></div>
+
+  <footer>
+    Mapa gerado com <a href="https://leafletjs.com/" target="_blank" rel="noopener">Leaflet</a> + OpenStreetMap. Salve este arquivo e abra no navegador.
+  </footer>
+
+  <!-- Leaflet JS -->
+  <script
+    src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-Vl+7mD/h5gT0z0xg8m3u3rQ5v3r1k3r5Y8mKQ2m6E1g="
+    crossorigin=""
+  ></script>
+
+  <script>
+    // Inicializa mapa
+    const map = L.map('map', {
+      center: [-10.95, -37.05], // posição inicial aproximada (centro regional)
+      zoom: 10
+    });
+
+    // Camada base OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 19,
+      attribution: '&copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Lista de pontos (nome, lat, lon, link fornecido)
+    const pontos = [
+      {
+        nome: "Manguezais de Neópolis",
+        lat: -10.317549,
+        lon: -36.573908,
+        url: "https://maps.app.goo.gl/1LjDhQiVZCC8zkV66"
+      },
+      {
+        nome: "Praia do Refúgio",
+        lat: -11.061321,
+        lon: -37.098148,
+        url: "https://maps.app.goo.gl/Y8jCKCG8gyoc2toT7"
+      },
+      {
+        nome: "Orla da Atalaia (Aracaju)",
+        lat: -10.9916891,
+        lon: -37.0512078,
+        url: "https://maps.app.goo.gl/o22aNCc8Pz2Gm9sC9"
+      },
+      {
+        nome: "Centro Histórico - São Cristóvão",
+        lat: -11.0120375,
+        lon: -37.2006429,
+        url: "https://maps.app.goo.gl/fRoyXWVVPt1scLSq8"
+      },
+      {
+        nome: "Centro Histórico - Laranjeiras",
+        lat: -10.8044168,
+        lon: -37.1654394,
+        url: "https://maps.app.goo.gl/kywkWH83uEGcTqhJ9"
+      }
+    ];
+
+    // Criar um grupo de marcadores para ajustar bounds
+    const markers = L.featureGroup();
+
+    // Ícone padrão (pode customizar)
+    const defaultIcon = L.icon({
+      iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+      iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+      shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41]
+    });
+
+    // Adiciona marcadores
+    pontos.forEach(p => {
+      const marker = L.marker([p.lat, p.lon], { icon: defaultIcon }).addTo(map);
+      const popupHtml = `
+        <div style="min-width:180px">
+          <strong>${p.nome}</strong><br/>
+          <a href="${p.url}" target="_blank" rel="noopener">Abrir no Google Maps</a><br/>
+          <small>Lat: ${p.lat.toFixed(6)}, Lon: ${p.lon.toFixed(6)}</small>
+        </div>
+      `;
+      marker.bindPopup(popupHtml);
+      markers.addLayer(marker);
+    });
+
+    // Ajusta mapa para mostrar todos os marcadores
+    map.fitBounds(markers.getBounds().pad(0.2));
+
+    // Controle de camadas (trocar base)
+    const baseLayers = {
+      "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png'),
+      "OpenStreetMap (humanitarian)": L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png')
+    };
+    L.control.layers(baseLayers, null, { collapsed: true }).addTo(map);
+
+    // Botão simples para centralizar nos pontos
+    const recenterBtn = L.control({ position: 'topleft' });
+    recenterBtn.onAdd = function () {
+      const div = L.DomUtil.create('div', 'leaflet-bar leaflet-control');
+      div.style.background = '#fff';
+      div.style.padding = '4px';
+      div.style.cursor = 'pointer';
+      div.title = 'Mostrar todos os pontos';
+      div.innerHTML = '📍';
+      div.onclick = () => map.fitBounds(markers.getBounds().pad(0.2));
+      return div;
+    };
+    recenterBtn.addTo(map);
+
+  </script>
+</body>
+</html>
+
